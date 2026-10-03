@@ -3,7 +3,6 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.x-black.svg?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![SQLite](https://img.shields.io/badge/Database-SQLite3-003B57.svg?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **TaskFlow** là một ứng dụng web quản lý công việc (To-Do List) được xây dựng bằng **Python Flask** và **SQLite**. Ứng dụng sở hữu giao diện hiện đại, tối ưu trải nghiệm người dùng với đầy đủ các tính năng CRUD, phân loại theo danh mục, quản lý mức độ ưu tiên, hạn chót (deadline) và thanh thống kê tiến độ trực quan.
 
@@ -52,7 +51,6 @@ todo-flask-app/
 ├── requirements.txt    # Danh sách các thư viện cần cài đặt
 ├── .gitignore          # Cấu hình bỏ qua các file tạm, cache khi đẩy lên git
 ├── README.md           # Hướng dẫn chi tiết dự án
-├── LICENSE             # Giấy phép mã nguồn mở (MIT)
 ├── static/
 │   ├── css/
 │   │   └── style.css   # Giao diện tùy chỉnh, hiệu ứng thẻ và màu sắc
@@ -134,9 +132,3 @@ git remote add origin https://github.com/<tai-khoan-cua-ban>/flask-todo-app.git
 # 6. Đẩy code lên GitHub
 git push -u origin main
 ```
-
----
-
-## 📜 Giấy Phép (License)
-
-Dự án này được phát hành dưới giấy phép [MIT License](LICENSE). Bạn hoàn toàn có thể tự do sử dụng, chỉnh sửa và phát triển thêm.
