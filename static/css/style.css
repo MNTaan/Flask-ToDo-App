@@ -1,0 +1,127 @@
+/* Google Font: Plus Jakarta Sans */
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Gradient Navbar */
+.bg-primary-gradient {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);
+}
+
+.brand-icon {
+    font-size: 1.4rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+.form-card {
+    border-radius: 16px;
+}
+
+/* Task Card Styling */
+.task-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-left: 4px solid #cbd5e1 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.task-card:hover {
+    box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-1px);
+}
+
+/* Priority Left Borders */
+.priority-border-high {
+    border-left-color: #ef4444 !important;
+}
+
+.priority-border-medium {
+    border-left-color: #f59e0b !important;
+}
+
+.priority-border-low {
+    border-left-color: #10b981 !important;
+}
+
+/* Completed Task Styling */
+.task-completed {
+    opacity: 0.72;
+    background-color: #fafbfc;
+}
+
+.task-completed .task-title {
+    color: #94a3b8 !important;
+}
+
+/* Toggle Checkbox Button */
+.btn-toggle-check {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+}
+
+.btn-toggle-check:hover {
+    transform: scale(1.15);
+}
+
+/* Form Inputs Focus */
+.form-control:focus, .form-select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.18);
+}
+
+/* Action Buttons */
+.task-actions .btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+.task-actions .btn:hover {
+    transform: scale(1.08);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    margin-top: auto;
+}
