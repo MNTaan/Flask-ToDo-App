@@ -16,7 +16,7 @@ def get_connection():
     return conn
 
 def init_db():
-    """Khởi tạo bảng todos và thêm dữ liệu mẫu nếu database còn trống"""
+    """Khởi tạo bảng todos và chỉ thêm dữ liệu mẫu DUY NHẤT 1 LẦN khi cài đặt database"""
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute('''
@@ -31,12 +31,19 @@ def init_db():
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         ''')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS system_settings (
+                key TEXT PRIMARY KEY,
+                value TEXT
+            )
+        ''')
         
-        # Kiểm tra xem đã có dữ liệu chưa, nếu chưa có thì thêm dữ liệu mẫu
-        cursor.execute('SELECT COUNT(*) as count FROM todos')
-        count = cursor.fetchone()['count']
+        # Kiểm tra xem hệ thống đã từng khởi tạo dữ liệu mẫu trước đây chưa
+        cursor.execute("SELECT value FROM system_settings WHERE key = 'sample_seeded'")
+        already_seeded = cursor.fetchone()
         
-        if count == 0:
+        # Chỉ tạo dữ liệu mẫu lần đầu tiên, không bao giờ tự động nạp lại khi người dùng xóa hết việc
+        if not already_seeded:
             today_str = datetime.now().strftime('%Y-%m-%d')
             sample_tasks = [
                 ('Đẩy project lên GitHub', 'Tạo repository mới trên GitHub và push source code lên', 'Học tập', 'high', today_str, 0),
@@ -48,6 +55,7 @@ def init_db():
                 INSERT INTO todos (title, description, category, priority, due_date, completed)
                 VALUES (?, ?, ?, ?, ?, ?)
             ''', sample_tasks)
+            cursor.execute("INSERT OR REPLACE INTO system_settings (key, value) VALUES ('sample_seeded', '1')")
             conn.commit()
 
 def get_all_todos(filter_status=None, category=None, search=None):
